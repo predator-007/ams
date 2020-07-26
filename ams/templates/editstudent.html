@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Edit-student</title>
+{% endblock title %}
+{% block content %}
+
+    </br>
+        {% if messages %}
+            {% for message in messages%}
+            <div class ="alert alert-info alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            {% endfor %}
+        {% endif %}
+    
+
+    <div class="container">
+    <form method="POST" class="row">
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Section</label>
+    <input type="text" class="form-control mr-2" name="ssec" placeholder={{ obj.ssec }} value={{ obj.ssec }}>
+    </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Roll Number</label>
+    <input type="text" class="form-control mr-2" name="sroll" placeholder={{ obj.sroll }} value={{ obj.sroll }}>
+    </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="text" class="form-control mr-2" name="sname" placeholder={{ obj.sname }} value={{ obj.sname }}>
+    </div>
+  <button type="submit" class="btn btn-success my-2 my-sm-0">Edit Student</button>
+</form>
+    </div>
+{% endblock content %}
+

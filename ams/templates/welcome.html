@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+    </br>
+    </br>
+    <p class="h1">Succesfully logged in</p>
+    </br>
+    
+    <!-- Example split danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">View Attendance</button>
+  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="{% url 'studentattendance' %}">Student Attendance</a>
+    <a class="dropdown-item" href="{% url 'studentoverallattendance' %}">Student overall attendance</a>
+  </div>
+</div>
+    </div>    
+{% endblock content %}

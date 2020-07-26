@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>student Attendance</title>
+{% endblock title %}
+
+{% block content %}
+        <div class="container">
+            <h2>check student attendance on particualr day</h2>
+            <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+    <input type="text" class="form-control mr-2" id="section" name="sroll" placeholder="student roll no">
+    <input type="date" name="date">
+    <input type="text" class="form-control mr-2" id="section" name="subject" placeholder="subject">
+    </div>
+    <button type="submit" class="btn btn-success my-2 my-sm-0">submit section</button>
+    </form>
+     </br>
+    <table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">date</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Rollno</th>
+      <th scope="col">Name</th>
+      <th scope="col">status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for obj in obj2 %}
+    {% if obj.status == "Present" %}
+    <tr>
+      <td class="table-success">{{obj.date}}</td>
+      <td class="table-success">{{obj.subject}}</td>
+      <td class="table-success">{{obj.sroll}}</td>
+      <td class="table-success">{{obj.sname}}</td>
+      <td class="table-success">{{obj.status}}</td>
+    </tr>
+    {% else %}
+    <tr>
+      <td class="table-danger">{{obj.date}}</td>
+      <td class="table-danger">{{obj.subject}}</td>
+      <td class="table-danger">{{obj.sroll}}</td>
+      <td class="table-danger">{{obj.sname}}</td>
+      <td class="table-danger">{{obj.status}}</td>
+    </tr>
+    {% endif %}
+        </br>
+        {% endfor %}
+  </tbody>
+  </table>
+    
+        </div>
+{% endblock content %}
+
+

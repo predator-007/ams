@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Edit Attendance</title>
+{% endblock title %}
+
+{% block content %}
+
+</br>
+        {% if messages %}
+            {% for message in messages%}
+            <div class ="alert alert-info alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            {% endfor %}
+        {% endif %}
+
+<div class="container">
+    <form method="POST" class="row">
+    {% csrf_token %}
+ <input type="text" class="form-control mr-2" id="section" name="sroll" placeholder="student roll no">
+  <button type="submit" class="btn btn-success my-2 my-sm-0">Submit</button>
+</form>
+</br>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+    <th scope="col"></th>
+    {% for s in sub %}
+      <th scope="col">{{s}}</th>
+    {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="table-success">Total Classes</td>
+      {% for key in sub2.values%}
+        <td class="table-success">{{key}}</td>
+      {%endfor%}
+    </tr>
+    <tr>
+      <td class="table-success">Classes Present</td>
+      {% for key in sub1.values%}
+        <td class="table-success">{{key}}</td>
+      {%endfor%}
+    </tr>
+    <tr>
+      <td class="table-success">Percentage</td>
+      {% for key in psub%}
+        {%if key >= 75 %}
+        <td class="table-success">{{key}}</td>
+        {% else %}
+        <td class="table-danger">{{key}}</td>
+        {% endif %}
+      {%endfor%}
+    </tr>
+        </br>
+  </tbody>
+  </table>
+  </br>
+  <table class="table table-bordered">
+  <tbody>
+  <tr>
+      <td class="table-success">Total Percentage</td>
+        {%if ptotal >= 75 %}
+        <td class="table-success">{{ptotal}}</td>
+        {% else %}
+        <td class="table-danger">{{ptotal}}</td>
+        {% endif %}
+    </tr>
+  </tbody>
+  </table>
+  <a href="{% url 'downloadstudentattendance' isroll %}">
+<button type="submit" class="btn btn-success my-2 my-sm-0" name="Download">Download</button>
+</a>
+    </div>
+
+{% endblock content %}
