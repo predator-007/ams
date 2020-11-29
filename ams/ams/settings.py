@@ -29,8 +29,8 @@ SECRET_KEY = env('DJANGO_SECURITY_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DJANGO_DEBUG')
 
-ALLOWED_HOSTS = env('DJANGO_ALLOWED_HOSTS')
-#ALLOWED_HOSTS=['127.0.0.1','3571b4f5663d.ngrok.io']
+#ALLOWED_HOSTS = env('DJANGO_ALLOWED_HOSTS')
+ALLOWED_HOSTS=['127.0.0.1','3571b4f5663d.ngrok.io']
 
 # Application definition
 
