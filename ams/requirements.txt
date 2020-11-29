@@ -15,7 +15,6 @@ ngrok==0.0.1
 odfpy==1.4.1
 openpyxl==3.0.3
 psycopg2==2.8.6
-pypiwin32==223
 pytz==2020.1
 PyYAML==5.3.1
 six==1.15.0
